@@ -70,6 +70,19 @@ class MovieInfoRepositoryIntgTest {
     }
 
     @Test
+    void findByYear() {
+        //given
+
+        //when
+        var moviesInfoMono = movieInfoRepository.findByYear(2005).log();
+
+        //then
+        StepVerifier.create(moviesInfoMono)
+                .expectNextCount(1)
+                .verifyComplete();
+    }
+
+    @Test
     void saveMovieinfo() {
         //given
         var movieInfo = new MovieInfo(null, "Batman Begins1",

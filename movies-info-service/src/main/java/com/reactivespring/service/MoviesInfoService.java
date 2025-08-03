@@ -42,4 +42,8 @@ public class MoviesInfoService {
                     return movieInfoRepository.save(movieInfo);
                 });
     }
+
+    public Flux<MovieInfo> getAllMovieInfoByYear(Integer year) {
+        return movieInfoRepository.findByYear(year);
+    }
 }
